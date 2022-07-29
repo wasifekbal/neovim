@@ -26,7 +26,7 @@ nvimtree_config.setup({
         { key = "<Tab>",                          action = "preview" },
         --{ key = "K",                              action = "first_sibling" },
         --{ key = "J",                              action = "last_sibling" },
-        --{ key = "I",                              action = "toggle_git_ignored" },
+        { key = "I",                              action = "toggle_git_ignored" },
         { key = ".",                              action = "toggle_dotfiles" },
         --{ key = "U",                              action = "toggle_custom" },
         { key = "R",                              action = "refresh" },
@@ -64,7 +64,7 @@ nvimtree_config.setup({
   renderer = {
       add_trailing = true,
       group_empty = true,
-      highlight_git = false,
+      highlight_git = true,
       full_name = false,
       root_folder_modifier = ":~",
       indent_markers = {
@@ -114,6 +114,20 @@ nvimtree_config.setup({
   },
   filters = {
     dotfiles = false,
+  },
+  git = {
+    ignore = false,
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    debounce_delay = 50,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
   },
 })
 
