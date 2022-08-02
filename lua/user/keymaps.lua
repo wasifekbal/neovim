@@ -120,3 +120,7 @@ keymap('n', '<C-n>', ':RunCode<CR>', opts)
 keymap('n', '<leader>x', ':RunClose<CR>', opts)
 -- map('n', '<leader>crf', ':CRFiletype<CR>', opts)
 -- map('n', '<leader>crp', ':CRProjects<CR>', opts)
+
+keymap('n', "<leader>bl", ":Gitsigns blame_line<CR>", opts)
+keymap('n', "<leader>ph", ":Gitsigns preview_hunk<CR>", opts)
+
