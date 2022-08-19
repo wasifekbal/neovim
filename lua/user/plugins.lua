@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs"
+  use "windwp/nvim-ts-autotag"
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -58,13 +59,14 @@ return packer.startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp'
+  -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   -- snippets.
-  use  'L3MON4D3/LuaSnip'
-  use  'saadparwaiz1/cmp_luasnip'
-  use  "rafamadriz/friendly-snippets"
-  use {'dsznajder/vscode-es7-javascript-react-snippets',
-  run = 'yarn install --frozen-lockfile && yarn compile'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use "rafamadriz/friendly-snippets"
+  use { 'dsznajder/vscode-es7-javascript-react-snippets',
+    run = 'yarn install --frozen-lockfile && yarn compile'
   }
 
   -- lsp
@@ -76,7 +78,7 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-media-files.nvim'
 
   -- treesitter
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'p00f/nvim-ts-rainbow'
 
   -- nvim-tree
@@ -92,7 +94,7 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- bufferline
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
   -- lualine
   use {
@@ -122,6 +124,8 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   use 'Shatur/neovim-session-manager'
+
+  use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -19,23 +19,38 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Misc keybinds
-keymap ("n", "<F2>", ":set hlsearch!<CR>", opts)
-keymap ('n',"<leader>sf",":source ~/.config/nvim/init.lua<CR>", {noremap = true})
-keymap ("n", "<leader>w", ":w<CR>", opts)
-keymap ("n", "<leader>q", ":xa<CR>", opts)
-keymap ("n", "<leader><leader>q", ":qa!<CR>", opts)
-keymap ("n", "<F3>", ":set spell!<CR>", {silent = true})
-keymap ("i", "<F3>", "<C-O>:set spell!<CR>", {silent = true})
+keymap("n", "<F2>", ":set hlsearch!<CR>", opts)
+keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader>q", ":xa<CR>", opts)
+keymap("n", "<leader><leader>q", ":qa!<CR>", opts)
+keymap("n", "<F3>", ":set spell!<CR>", { silent = true })
+keymap("i", "<F3>", "<C-O>:set spell!<CR>", { silent = true })
 
+--[[ vim.keymap.set('n', 'x', '"_x') ]]
+keymap('n', 'x', '"_x', opts)
+
+-- Select all
+--[[ vim.keymap.set('n', '<leader>s', 'gg<S-v>G') ]]
+keymap('n', '<leader>s', 'gg<S-v>G', opts)
 
 -- Normal --
+-- New empty buffer.
+--[[ vim.keymap.set('n', 'te', ':enew<CR>') ]]
+keymap('n', 'te', ':enew<CR>', opts)
+-- Split window
+--[[ vim.keymap.set('n', 'ss', ':split<Return><C-w>w') ]]
+keymap('n', 'ss', ':split<Return><C-w>w', opts)
+--[[ vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w') ]]
+keymap('n', 'sv', ':vsplit<Return><C-w>w', opts)
+-- closing buffer.
+--[[ vim.keymap.set('n', '<leader>c', ':bd<CR>') ]]
+keymap('n', '<leader>c', ':bd<CR>', opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
--- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -46,10 +61,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 -- keymap("n", "<S-l>", ":bnext<CR>", opts)extend
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Insert --
--- Press jk fast to enter
--- keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -76,10 +87,12 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 --  Telescope
-keymap("n","<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n","<leader>fg", " <cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n","<leader>fb", " <cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-keymap("n","<leader>fh", " <cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+keymap("n", "<leader>ff",
+  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+  opts)
+keymap("n", "<leader>fg", " <cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+keymap("n", "<leader>fb", " <cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+keymap("n", "<leader>fh", " <cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 
 -- nvim-tree
 keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
@@ -105,11 +118,11 @@ keymap('n', '<A-7>', "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
 keymap('n', '<A-8>', "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
 keymap('n', '<A-9>', "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
 -- closing buffer
-keymap("n",'<leader>c',":bd<CR>", opts)
+--[[ keymap("n", '<leader>c', ":bd<CR>", opts) ]]
 
 -- neoformat
-keymap("n","<F8>",":Neoformat<CR>", {noremap = true})
-keymap("i","<F8>","<C-O>:Neoformat<CR>", {noremap = true})
+keymap("n", "<F8>", ":Neoformat<CR>", { noremap = true })
+keymap("i", "<F8>", "<C-O>:Neoformat<CR>", { noremap = true })
 
 
 -- ## code_runner ##
@@ -123,4 +136,3 @@ keymap('n', '<leader>x', ':RunClose<CR>', opts)
 
 keymap('n', "<leader>bl", ":Gitsigns blame_line<CR>", opts)
 keymap('n', "<leader>ph", ":Gitsigns preview_hunk<CR>", opts)
-

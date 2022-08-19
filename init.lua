@@ -19,7 +19,7 @@ require('user/alpha')
 require('user/project')
 require('user/gitsigns')
 require('user/sessions')
+require('user/ts-autotag')
+require('user/toggleterm')
 
 vim.cmd([[ source  ~/.config/nvim/ScrollColor.vim ]])
-
-
