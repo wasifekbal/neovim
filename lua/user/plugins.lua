@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
+  use 'sainnhe/everforest'
 
   -- cmp
   use 'hrsh7th/cmp-buffer'

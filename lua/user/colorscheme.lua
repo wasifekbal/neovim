@@ -1,19 +1,17 @@
 -- tokyonight colorscheme
-vim.g.tokyonight_style = "storm" -- storm", "night", "day"
-vim.g.tokyonight_terminal_colors = true
-vim.g.tokyonight_italic_comments = true
-vim.g.tokyonight_italic_keywords = true
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_italic_variables = true
-vim.g.tokyonight_transparent = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-vim.g.tokyonight_transparent_sidebar = true
-vim.g.tokyonight_dark_float = true
-vim.g.tokyonight_colors = { hint = "orange", error = "#d30e39" }
-vim.g.tokyonight_lualine_bold = false
+--[[ vim.g.tokyonight_style = "storm" -- storm", "night", "day" ]]
+--[[ vim.g.tokyonight_terminal_colors = true ]]
+--[[ vim.g.tokyonight_italic_comments = true ]]
+--[[ vim.g.tokyonight_italic_keywords = true ]]
+--[[ vim.g.tokyonight_italic_functions = true ]]
+--[[ vim.g.tokyonight_italic_variables = true ]]
+--[[ vim.g.tokyonight_transparent = false ]]
+--[[ vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" } ]]
+--[[ vim.g.tokyonight_transparent_sidebar = true ]]
+--[[ vim.g.tokyonight_dark_float = true ]]
+--[[ vim.g.tokyonight_colors = { hint = "orange", error = "#d30e39" } ]]
+--[[ vim.g.tokyonight_lualine_bold = false ]]
 
--- tokyonight colorscheme
--- vim.g.transparent_background = true
 
 -- dracula colorscheme
 -- show the '~' characters after the end of buffers
@@ -25,7 +23,16 @@ vim.g.dracula_transparent_bg = true
 -- set italic comment
 vim.g.dracula_italic_comment = true
 
-local colorscheme = "tokyonight"
+
+-- everforest colorscheme
+vim.g.everforest_background = 'medium' -- 'hard'`, `'medium'`, `'soft'
+vim.g.everforest_better_performance = 1
+vim.g.everforest_enable_italic = 1
+vim.g.everforest_transparent_background = 0 -- `0`, `1`, `2`
+
+
+
+local colorscheme = "everforest"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
