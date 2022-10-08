@@ -26,11 +26,9 @@ keymap("n", "<leader><leader>q", ":qa!<CR>", opts)
 keymap("n", "<F3>", ":set spell!<CR>", { silent = true })
 keymap("i", "<F3>", "<C-O>:set spell!<CR>", { silent = true })
 
---[[ vim.keymap.set('n', 'x', '"_x') ]]
 keymap('n', 'x', '"_x', opts)
 
 -- Select all
---[[ vim.keymap.set('n', '<leader>s', 'gg<S-v>G') ]]
 keymap('n', '<leader>s', 'gg<S-v>G', opts)
 
 -- Normal --
@@ -38,12 +36,9 @@ keymap('n', '<leader>s', 'gg<S-v>G', opts)
 --[[ vim.keymap.set('n', 'te', ':enew<CR>') ]]
 keymap('n', 'te', ':enew<CR>', opts)
 -- Split window
---[[ vim.keymap.set('n', 'ss', ':split<Return><C-w>w') ]]
 keymap('n', 'ss', ':split<Return><C-w>w', opts)
---[[ vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w') ]]
 keymap('n', 'sv', ':vsplit<Return><C-w>w', opts)
 -- closing buffer.
---[[ vim.keymap.set('n', '<leader>c', ':bd<CR>') ]]
 keymap('n', '<leader>c', ':bd<CR>', opts)
 
 -- Better window navigation
