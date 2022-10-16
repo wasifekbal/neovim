@@ -60,7 +60,6 @@ return packer.startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp'
-  -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   -- snippets.
   use 'L3MON4D3/LuaSnip'
@@ -73,6 +72,7 @@ return packer.startup(function(use)
   -- lsp
   use 'neovim/nvim-lspconfig'
   use "williamboman/nvim-lsp-installer"
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- telescope
   use 'nvim-telescope/telescope.nvim'
@@ -95,12 +95,15 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- bufferline
-  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'akinsho/bufferline.nvim',
+        tag = "v2.*",
+        --[[ requires = 'kyazdani42/nvim-web-devicons' ]]
+    }
 
   -- lualine
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    --[[ requires = { 'kyazdani42/nvim-web-devicons', opt = true } ]]
   }
 
   -- code formatter
@@ -127,6 +130,8 @@ return packer.startup(function(use)
   use 'Shatur/neovim-session-manager'
 
   use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
+
+  use 'ThePrimeagen/vim-be-good'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

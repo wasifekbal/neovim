@@ -1,5 +1,22 @@
-vim.g.neoformat_enabled_python = {'autopep8'}
-vim.g.neoformat_enabled_javascript = {'prettier'}
+-- vim.cmd([[
+-- let g:neoformat_c_clangformat = {
+--             \ 'exe': 'clang-format',
+--             \ 'args': ['-style="{BasedOnStyle: llvm, IndentWidth: 4}"', '-s 4', '-E'],
+--             \ 'stdin': 1,
+--             \ }
+-- ]])
+--
+-- vim.cmd([[ let g:neoformat_cpp_clangformat = {
+--             \ 'exe': 'clang-format',
+--             \ 'args': ['-style="{BasedOnStyle: llvm, IndentWidth: 4}"', '-s 4', '-E'],
+--             \ 'stdin': 1,
+--             \ }
+-- ]])
+
+vim.g.neoformat_enabled_python = { "black" }
+vim.g.neoformat_enabled_javascript = { "prettier" }
+vim.g.neoformat_enabled_c = { "clangformat" }
+vim.g.neoformat_enabled_cpp = { "clangformat" }
 
 -- Enable alignment
 vim.g.neoformat_basic_format_align = 1

@@ -12,7 +12,6 @@
 --[[ vim.g.tokyonight_colors = { hint = "orange", error = "#d30e39" } ]]
 --[[ vim.g.tokyonight_lualine_bold = false ]]
 
-
 -- dracula colorscheme
 -- show the '~' characters after the end of buffers
 vim.g.dracula_show_end_of_buffer = true
@@ -23,19 +22,16 @@ vim.g.dracula_transparent_bg = true
 -- set italic comment
 vim.g.dracula_italic_comment = true
 
-
 -- everforest colorscheme
-vim.g.everforest_background = 'medium' -- 'hard'`, `'medium'`, `'soft'
+vim.g.everforest_background = "soft" -- 'hard'`, `'medium'`, `'soft'
 vim.g.everforest_better_performance = 1
 vim.g.everforest_enable_italic = 1
-vim.g.everforest_transparent_background = 0 -- `0`, `1`, `2`
-
-
+vim.g.everforest_transparent_background = 1 -- `0`, `1`, `2`
 
 local colorscheme = "everforest"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
+    vim.notify("colorscheme " .. colorscheme .. " not found!")
+    return
 end
