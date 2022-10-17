@@ -6,6 +6,9 @@ end
 local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
+    --[[ on_init = function(new_client, _) ]]
+    --[[   new_client.offset_encoding = 'utf-32' ]]
+    --[[ end, ]]
     debug = false,
     sources = {
         formatting.prettier.with({

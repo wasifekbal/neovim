@@ -1,17 +1,18 @@
 -- :help options
 
 local options = {
-    background = 'dark',
+    background = "dark",
     pumblend = 5,
     winblend = 5,
-    wildoptions = 'pum',
-    inccommand = 'split',
+    wildoptions = "pum",
+    inccommand = "split",
     shell = "zsh",
     showcmd = true,
     autoindent = true,
     foldmethod = "indent",
     backup = false, -- creates a backup file
-    clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+    --[[ clipboard = "unnamedplus", -- allows neovim to access the system clipboard ]]
+    clipboard = "", -- allows neovim to access the system clipboard
     cmdheight = 1, -- more space in the neovim command line for displaying messages
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
     conceallevel = 0, -- so that `` is visible in markdown files
@@ -33,22 +34,22 @@ local options = {
     termguicolors = true, -- set term gui colors (most terminals support this)
     timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true, -- enable persistent undo
-    updatetime = 300, -- faster completion (4000ms default)
+    updatetime = 100, -- faster completion (4000ms default)
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     expandtab = true, -- convert tabs to spaces
-    cursorline = true, -- highlight the current line
-    number = true, -- set numbered lines
+    cursorline = false, -- highlight the current line
+    --[[ number = true, -- set numbered lines ]]
     relativenumber = true, -- set relative numbered lines
     numberwidth = 2, -- set number column width to 2 {default 4}
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
     wrap = false, -- display lines as one long line
     scrolloff = 8, -- is one of my fav
     sidescrolloff = 8,
-    guifont = "monospace:h17", -- the font used in graphical neovim applications
+    guifont = "FiraCode Nerd Font:h17", -- the font used in graphical neovim applications
 }
-vim.opt.shortmess:append "c"
-vim.opt.wildignore:append { '*/node_modules/*' }
-vim.cmd [[filetype plugin indent on]]
+vim.opt.shortmess:append("c")
+vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.cmd([[filetype plugin indent on]])
 
 for k, v in pairs(options) do
     vim.opt[k] = v
@@ -60,15 +61,16 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = '*',
-    command = "set nopaste"
+    pattern = "*",
+    command = "set nopaste",
 })
 
+vim.cmd([[set foldlevel=99]])
 -- Add asterisks in block comments
-vim.opt.formatoptions:append { 'r' }
+vim.opt.formatoptions:append({ "r" })
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set nofoldenable]]
-vim.cmd [[set foldlevel=99]]
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set nofoldenable]])
+vim.cmd([[set foldlevel=99]])
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
