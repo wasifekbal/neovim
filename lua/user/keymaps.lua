@@ -31,19 +31,22 @@ keymap("n", "x", '"_x', opts)
 
 -- leader y -> yank in clipboard,
 -- else yank in vim reg.
-keymap("n", "<leader>y", '"*y', opts)
-keymap("v", "<leader>y", '"*y', opts)
-keymap("n", "<leader>yy", '"*y', opts)
+keymap("n", "<leader>y", '"+y', opts)
+keymap("v", "<leader>y", '"+y', opts)
+keymap("n", "<leader>yy", '"+yy', opts)
 
 -- leader p -> paste from clipboard,
 -- else, paste from default vim reg.
-keymap("n", "<leader>p", '"*p', opts)
-keymap("v", "<leader>p", '"*p', opts)
-keymap("n", "<leader>P", '"*P', opts)
-keymap("v", "<leader>P", '"*P', opts)
+keymap("n", "<leader>p", '"+p', opts)
+keymap("v", "<leader>p", '"+p', opts)
+keymap("n", "<leader>P", '"+P', opts)
+keymap("v", "<leader>P", '"+P', opts)
 
 -- Select all
 keymap("n", "<leader>s", "gg<S-v>G", opts)
+
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Normal --
 -- New empty buffer.
@@ -79,13 +82,13 @@ keymap("v", ">", ">gv", opts)
 -- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 -- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
--- can't remember what it does.
---[[ keymap("v", "p", '"_dP', opts) ]]
+-- can't remember what it does. but it does something important.
+keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv=gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv=gv", opts)
 -- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 -- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
@@ -101,6 +104,7 @@ keymap(
     "n",
     "<leader>ff",
     "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+    --[[ "<cmd>lua require'telescope.builtin'.find_files()<cr>", ]]
     opts
 )
 keymap("n", "<leader>fg", " <cmd>lua require('telescope.builtin').live_grep()<cr>", opts)

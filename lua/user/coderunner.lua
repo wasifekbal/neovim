@@ -19,6 +19,6 @@ coderunner_config.setup({
     position = "bot",
     -- window size, this option is ignored if tab is true
     --[[ size = 12, ]]
-    size = 20,
+    size = 12,
   }
 })

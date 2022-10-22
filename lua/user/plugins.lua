@@ -48,7 +48,7 @@ return packer.startup(function(use)
     use("windwp/nvim-ts-autotag")
 
     -- Colorschemes
-    use("lunarvim/colorschemes") -- A bunch of colorschemes you can try out
+    --[[ use("lunarvim/colorschemes") -- A bunch of colorschemes you can try out ]]
     use("folke/tokyonight.nvim")
     use("Mofiqul/dracula.nvim")
     use("sainnhe/everforest")
@@ -74,7 +74,6 @@ return packer.startup(function(use)
     -- lsp
     use("neovim/nvim-lspconfig")
     use("williamboman/nvim-lsp-installer")
-    --[[ use 'jose-elias-alvarez/null-ls.nvim' ]]
 
     -- telescope
     use("nvim-telescope/telescope.nvim")
@@ -102,7 +101,6 @@ return packer.startup(function(use)
     -- lualine
     use({
         "nvim-lualine/lualine.nvim",
-        --[[ requires = { 'kyazdani42/nvim-web-devicons', opt = true } ]]
     })
 
     -- code formatter

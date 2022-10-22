@@ -41,9 +41,29 @@ let g:neoformat_lua_stylua = {
     \ }
 ]])
 
+vim.cmd([[
+let g:neoformat_html_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--tab-width 4', '--stdin-filepath', '"%:p"'],
+    \ 'stdin': 1,
+    \ 'try_node_exe': 1,
+    \ }
+]])
+
+vim.cmd([[
+let g:neoformat_css_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--tab-width 4', '--stdin-filepath', '"%:p"'],
+    \ 'stdin': 1,
+    \ 'try_node_exe': 1,
+    \ }
+]])
+
 vim.g.neoformat_enabled_python = { "black" }
 vim.g.neoformat_enabled_javascript = { "prettier" }
 vim.g.neoformat_enabled_javascriptreact = { "prettier" }
+vim.g.neoformat_enabled_html = { "prettier" }
+vim.g.neoformat_enabled_css = { "prettier" }
 vim.g.neoformat_enabled_c = { "clangformat" }
 vim.g.neoformat_enabled_cpp = { "clangformat" }
 vim.g.neoformat_enabled_lua = { "stylua" }

@@ -1,6 +1,7 @@
 -- :help options
 
 local options = {
+    guicursor = "",
     background = "dark",
     pumblend = 5,
     winblend = 5,
@@ -38,7 +39,7 @@ local options = {
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     expandtab = true, -- convert tabs to spaces
     cursorline = false, -- highlight the current line
-    --[[ number = true, -- set numbered lines ]]
+    number = true, -- set numbered lines
     relativenumber = true, -- set relative numbered lines
     numberwidth = 2, -- set number column width to 2 {default 4}
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
@@ -74,3 +75,6 @@ vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set nofoldenable]])
 vim.cmd([[set foldlevel=99]])
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+-- override the color of line number.
+vim.cmd([[highlight LineNr guifg=#969e69]])

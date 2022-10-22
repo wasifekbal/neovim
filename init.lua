@@ -1,7 +1,4 @@
-require('user/options')
-require('user/keymaps')
 require('user/plugins')
-require('user/colorscheme')
 require('user/cmp')
 require('user/lsp')
 require('user/telescope')
@@ -21,5 +18,9 @@ require('user/gitsigns')
 require('user/sessions')
 require('user/ts-autotag')
 require('user/toggleterm')
+
+require('user/colorscheme')
+require('user/keymaps')
+require('user/options')
 
 vim.cmd([[ source  ~/.config/nvim/ScrollColor.vim ]])
