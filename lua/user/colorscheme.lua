@@ -29,25 +29,67 @@
 --[[ vim.g.everforest_transparent_background = 1 -- `0`, `1`, `2` ]]
 
 -- Default gruvbox options:
-require("gruvbox").setup({
-    undercurl = true,
-    underline = true,
-    bold = false,
-    italic = true,
-    strikethrough = true,
-    invert_selection = false,
-    invert_signs = false,
-    invert_tabline = false,
-    invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "soft", -- can be "hard", "soft" or empty string
-    palette_overrides = {},
-    overrides = {},
-    dim_inactive = false,
-    transparent_mode = true,
+
+-- require("gruvbox").setup({
+--     undercurl = true,
+--     underline = true,
+--     bold = false,
+--     italic = true,
+--     strikethrough = true,
+--     invert_selection = false,
+--     invert_signs = false,
+--     invert_tabline = false,
+--     invert_intend_guides = false,
+--     inverse = true, -- invert background for search, diffs, statuslines and errors
+--     contrast = "soft", -- can be "hard", "soft" or empty string
+--     palette_overrides = {},
+--     overrides = {},
+--     dim_inactive = false,
+--     transparent_mode = true,
+-- })
+
+-- catppuccin options
+require("catppuccin").setup({
+    flavour = "mocha",
+    background = {
+        light = "latte",
+        dark = "mocha",
+    },
+    compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
+    transparent_background = true,
+    term_colors = true,
+    dim_inactive = {
+        enabled = false,
+        shade = "dark",
+        percentage = 0.15,
+    },
+    styles = {
+        comments = { "italic" },
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+    },
+    color_overrides = {},
+    custom_highlights = {},
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        treesitter = true,
+    },
 })
 
-local colorscheme = "gruvbox"
+
+local colorscheme = "catppuccin"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
