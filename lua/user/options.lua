@@ -1,7 +1,7 @@
 -- :help options
 
 local options = {
-    guicursor = "",
+    guicursor = "", -- block size cursor, even in insert mode.
     background = "dark",
     pumblend = 5,
     winblend = 5,
@@ -12,8 +12,7 @@ local options = {
     autoindent = true,
     foldmethod = "indent",
     backup = false, -- creates a backup file
-    --[[ clipboard = "unnamedplus", -- allows neovim to access the system clipboard ]]
-    clipboard = "", -- allows neovim to access the system clipboard
+    clipboard = "unnamedplus", -- allows neovim to access the system clipboard
     cmdheight = 1, -- more space in the neovim command line for displaying messages
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
     conceallevel = 0, -- so that `` is visible in markdown files
@@ -77,4 +76,4 @@ vim.cmd([[set foldlevel=99]])
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- override the color of line number.
-vim.cmd([[highlight LineNr guifg=#969e69]])
+vim.cmd([[highlight LineNr guifg=#e0a0a0]])

@@ -12,16 +12,15 @@ require('user/comment')
 require('user/bufferline')
 require('user/lualine')
 require('user/neoformat')
-require('user/coderunner')
+--[[ require('user/coderunner') ]]
 require('user/impatient')
 require('user/indentline')
 require('user/alpha')
-require('user/project')
+--[[ require('user/project') ]]
 require('user/gitsigns')
 require('user/sessions')
 require('user/ts-autotag')
-require('user/colorizer')
+--[[ require('user/colorizer') ]]
 --[[ require('user/toggleterm') ]]
-
 
 vim.cmd([[ source  ~/.config/nvim/ScrollColor.vim ]])

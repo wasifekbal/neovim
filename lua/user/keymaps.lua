@@ -31,16 +31,16 @@ keymap("n", "x", '"_x', opts)
 
 -- leader y -> yank in clipboard,
 -- else yank in vim reg.
-keymap("n", "<leader>y", '"+y', opts)
-keymap("v", "<leader>y", '"+y', opts)
-keymap("n", "<leader>yy", '"+yy', opts)
+--[[ keymap("n", "<leader>y", '"+y', opts) ]]
+--[[ keymap("v", "<leader>y", '"+y', opts) ]]
+--[[ keymap("n", "<leader>yy", '"+yy', opts) ]]
 
 -- leader p -> paste from clipboard,
 -- else, paste from default vim reg.
-keymap("n", "<leader>p", '"+p', opts)
-keymap("v", "<leader>p", '"+p', opts)
-keymap("n", "<leader>P", '"+P', opts)
-keymap("v", "<leader>P", '"+P', opts)
+--[[ keymap("n", "<leader>p", '"+p', opts) ]]
+--[[ keymap("v", "<leader>p", '"+p', opts) ]]
+--[[ keymap("n", "<leader>P", '"+P', opts) ]]
+--[[ keymap("v", "<leader>P", '"+P', opts) ]]
 
 -- Select all
 keymap("n", "<leader>s", "gg<S-v>G", opts)
