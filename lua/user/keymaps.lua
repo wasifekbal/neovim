@@ -52,8 +52,8 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 -- New empty buffer.
 keymap("n", "te", ":enew<CR>", opts)
 -- Split window
-keymap('n', 'ss', ':split<Return><C-w>w', opts)
-keymap('n', 'sv', ':vsplit<Return><C-w>w', opts)
+keymap("n", "ss", ":split<Return><C-w>w", opts)
+keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
 -- closing buffer.
 keymap("n", "<leader>c", ":bd<CR>", opts)
 

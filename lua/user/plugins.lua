@@ -55,11 +55,11 @@ return packer.startup(function(use)
     -- lsp
     --[[ use("neovim/nvim-lspconfig") ]]
     --[[ use("williamboman/nvim-lsp-installer") ]]
-    use {
+    use({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
-    }
+    })
 
     -- cmp
     use("hrsh7th/cmp-buffer")
@@ -135,7 +135,7 @@ return packer.startup(function(use)
     use("ThePrimeagen/vim-be-good")
 
     --[[ color highlighter for Neovim ]]
-    use('norcalli/nvim-colorizer.lua')
+    use("norcalli/nvim-colorizer.lua")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

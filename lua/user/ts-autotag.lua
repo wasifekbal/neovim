@@ -1,6 +1,6 @@
 local status_ok, autotag_config = pcall(require, "nvim-ts-autotag")
 if not status_ok then
-  return
+    return
 end
 
-autotag_config.setup {}
+autotag_config.setup({})

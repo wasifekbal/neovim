@@ -60,4 +60,3 @@ lspconfig.clangd.setup({
     on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
 })
-
