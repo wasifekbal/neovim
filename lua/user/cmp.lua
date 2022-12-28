@@ -56,7 +56,6 @@ local kind_icons = {
   TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
-
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -84,8 +83,8 @@ cmp.setup {
         cmp.select_next_item()
         --[[ elseif luasnip.expandable() then ]]
         --[[   luasnip.expand() ]]
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+      --[[ elseif luasnip.expand_or_jumpable() then ]]
+      --[[   luasnip.expand_or_jump() ]]
       --[[ elseif has_words_before() then ]]
       --[[   cmp.complete() ]]
         --[[ elseif check_backspace() then ]]
@@ -102,8 +101,8 @@ cmp.setup {
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
+      --[[ elseif luasnip.jumpable(-1) then ]]
+      --[[   luasnip.jump(-1) ]]
       else
         fallback()
       end
@@ -117,7 +116,7 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
-    --[[ { name = "luasnip" }, ]]
+    { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
   },
@@ -132,7 +131,7 @@ cmp.setup {
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[nvim_lua]",
-        --[[ luasnip = "[Snip]", ]]
+        luasnip = "[Snip]",
         buffer = "[Buf]",
         path = "[Path]",
       })[entry.source.name]

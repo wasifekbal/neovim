@@ -52,8 +52,8 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 -- New empty buffer.
 keymap("n", "te", ":enew<CR>", opts)
 -- Split window
---[[ keymap('n', 'ss', ':split<Return><C-w>w', opts) ]]
---[[ keymap('n', 'sv', ':vsplit<Return><C-w>w', opts) ]]
+keymap('n', 'ss', ':split<Return><C-w>w', opts)
+keymap('n', 'sv', ':vsplit<Return><C-w>w', opts)
 -- closing buffer.
 keymap("n", "<leader>c", ":bd<CR>", opts)
 
@@ -70,8 +70,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)extend
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
+--[[ keymap("n", "<S-h>", ":bnext<CR>", opts) ]]
+--[[ keymap("n", "<S-l>", ":bprevious<CR>", opts) ]]
 
 -- Visual --
 -- Stay in indent mode
@@ -121,33 +121,20 @@ keymap("n", "<A-.>", ":BufferLineCycleNext<CR>", opts)
 -- Re-order to previous/next
 keymap("n", "<A-<>", ":BufferLineMovePrev<CR>", opts)
 keymap("n", "<A->>", ":BufferLineMoveNext<CR>", opts)
--- pin a tab
---[[ keymap("n", "<A-p>", ":BufferLineTogglePin<CR>", opts) ]]
--- BufferLineGoToBuffer
---[[ keymap("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", opts) ]]
---[[ keymap("n", "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", opts) ]]
---[[ keymap("n", "<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>", opts) ]]
---[[ keymap("n", "<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>", opts) ]]
---[[ keymap("n", "<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>", opts) ]]
---[[ keymap("n", "<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>", opts) ]]
---[[ keymap("n", "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", opts) ]]
---[[ keymap("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", opts) ]]
---[[ keymap("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", opts) ]]
--- closing buffer
---[[ keymap("n", '<leader>c', ":bd<CR>", opts) ]]
 
--- neoformat
-keymap("n", "<F8>", ":Neoformat<CR>", { noremap = true })
-keymap("i", "<F8>", "<C-O>:Neoformat<CR>", { noremap = true })
+-- formatter
+keymap("n", "<F8>", ":Format<CR>", { noremap = true, silent = true })
+keymap("i", "<F8>", "<C-O>:Format<CR>", { noremap = true, silent = true })
 
 -- ## code_runner ##
-keymap("n", "<C-n>", ":RunCode<CR>", opts)
+--[[ keymap("n", "<C-n>", ":RunCode<CR>", opts) ]]
 -- map('n', '<leader>rf', ':RunFile<CR>', opts)
 --map('n', '<leader>n', ':RunFile tab<CR>', opts)
 -- map('n', '<leader>rp', ':RunProject<CR>', opts)
-keymap("n", "<leader>x", ":RunClose<CR>", opts)
+--[[ keymap("n", "<leader>x", ":RunClose<CR>", opts) ]]
 -- map('n', '<leader>crf', ':CRFiletype<CR>', opts)
 -- map('n', '<leader>crp', ':CRProjects<CR>', opts)
 
 keymap("n", "<leader>bl", ":Gitsigns blame_line<CR>", opts)
 keymap("n", "<leader>ph", ":Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<leader>dt", ":Gitsigns diffthis<CR>", opts)

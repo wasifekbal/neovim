@@ -163,7 +163,7 @@ local schemas = {
   },
 }
 
-local opts = {
+local options = {
   settings = {
     json = {
       schemas = schemas,
@@ -180,4 +180,4 @@ local opts = {
   },
 }
 
-return opts
+return options

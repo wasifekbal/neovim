@@ -52,6 +52,15 @@ return packer.startup(function(use)
     --[[ use({ "ellisonleao/gruvbox.nvim" }) ]]
     use("catppuccin/nvim")
 
+    -- lsp
+    --[[ use("neovim/nvim-lspconfig") ]]
+    --[[ use("williamboman/nvim-lsp-installer") ]]
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
+
     -- cmp
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
@@ -68,10 +77,6 @@ return packer.startup(function(use)
         "dsznajder/vscode-es7-javascript-react-snippets",
         run = "yarn install --frozen-lockfile && yarn compile",
     })
-
-    -- lsp
-    use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
 
     -- telescope
     use("nvim-telescope/telescope.nvim")
@@ -102,7 +107,8 @@ return packer.startup(function(use)
     })
 
     -- code formatter
-    use("sbdchd/neoformat")
+    --[[ use("sbdchd/neoformat") ]]
+    use("mhartington/formatter.nvim")
 
     -- code-runner
     use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
