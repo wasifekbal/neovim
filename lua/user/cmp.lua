@@ -9,6 +9,7 @@ if not snip_status_ok then
 end
 
 luasnip.filetype_extend("javascript", { "html" })
+luasnip.filetype_extend("typescript", { "html" })
 luasnip.filetype_extend("javascriptreact", { "html" })
 luasnip.filetype_extend("typescriptreact", { "html" })
 

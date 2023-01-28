@@ -100,6 +100,10 @@ require("formatter").setup({
             require("formatter.filetypes.sh").shfmt,
         },
 
+        yaml = {
+            require("formatter.filetypes.yaml").yamlfmt,
+        },
+
         c = {
             --[[ require("formatter.defaults.clangformat"), ]]
             function()

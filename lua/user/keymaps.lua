@@ -43,7 +43,7 @@ keymap("n", "x", '"_x', opts)
 --[[ keymap("v", "<leader>P", '"+P', opts) ]]
 
 -- Select all
-keymap("n", "<leader>s", "gg<S-v>G", opts)
+keymap("n", "<leader>a", "gg<S-v>G", opts)
 
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)

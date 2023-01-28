@@ -2,7 +2,7 @@ local treesitter_config = require("nvim-treesitter.configs")
 
 treesitter_config.setup({
     -- ensure_installed = "maintained",
-    ensure_installed = { "c", "cpp", "python", "javascript", "html", "css", "json", "java" },
+    ensure_installed = { "c", "cpp", "python", "javascript", "html", "css", "json", "java", "typescript", "tsx" },
     sync_install = false,
     ignore_install = { "" }, -- List of parsers to ignore installing
     highlight = {
@@ -23,4 +23,7 @@ treesitter_config.setup({
         enable = true,
         enable_autocmd = false,
     },
+    autotag = {
+        enable = true,
+    }
 })

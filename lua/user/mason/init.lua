@@ -19,7 +19,7 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-    ensure_installed = { "sumneko_lua", "pyright", "tsserver", "tailwindcss", "pyright" },
+    ensure_installed = { "sumneko_lua", "tsserver", "tailwindcss", "pyright" },
     automatic_installation = true,
 })
 
