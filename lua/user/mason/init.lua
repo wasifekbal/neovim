@@ -10,6 +10,7 @@ end
 
 mason.setup({
     ui = {
+        border="rounded",
         icons = {
             package_installed = "✓",
             package_pending = "➜",
@@ -19,7 +20,17 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-    ensure_installed = { "sumneko_lua", "tsserver", "tailwindcss", "pyright" },
+    ensure_installed = {
+        "bashls",
+        "sumneko_lua",
+        "jsonls",
+        "html",
+        "cssls",
+        "clangd",
+        "pyright",
+        "tsserver",
+        "tailwindcss",
+    },
     automatic_installation = true,
 })
 
