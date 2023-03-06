@@ -67,18 +67,17 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for nvim lua
     use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim builtin LSP client
 
-
     -- snippets.
     use("L3MON4D3/LuaSnip") -- Snippet Engine for Neovim written in Lua.
     use("saadparwaiz1/cmp_luasnip") -- luasnip completion source for nvim-cmp
-    use("rafamadriz/friendly-snippets")  -- Set of preconfigured snippets for different languages.
+    use("rafamadriz/friendly-snippets") -- Set of preconfigured snippets for different languages.
     use({ -- Extension for React/Javascript snippets with search supporting ES7+ and babel features
         "dsznajder/vscode-es7-javascript-react-snippets",
         run = "yarn install --frozen-lockfile && yarn compile",
     })
 
     -- telescope
-    use("nvim-telescope/telescope.nvim") -- highly extendable fuzzy finder over lists. 
+    use("nvim-telescope/telescope.nvim") -- highly extendable fuzzy finder over lists.
     use("nvim-telescope/telescope-media-files.nvim") -- Telescope extension to preview media files using Ueberzug.
 
     -- treesitter
@@ -107,7 +106,7 @@ return packer.startup(function(use)
     use("mhartington/formatter.nvim") -- a kickass code formatter.
 
     -- code-runner
-    use("CRAG666/code_runner.nvim") -- Code runner 
+    use("CRAG666/code_runner.nvim") -- Code runner
 
     -- impatient (speed loading lua modules)
     use("lewis6991/impatient.nvim")
@@ -132,6 +131,8 @@ return packer.startup(function(use)
 
     --[[ color highlighter for Neovim ]]
     use("norcalli/nvim-colorizer.lua") -- The fastest Neovim colorizer.
+
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
