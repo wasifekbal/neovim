@@ -27,6 +27,7 @@ mason_lspconfig.setup({
         "html",
         "cssls",
         "clangd",
+        "jdtls",
         "pyright",
         "tsserver",
         "tailwindcss",

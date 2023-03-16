@@ -50,6 +50,7 @@ return packer.startup(function(use)
     use("sainnhe/everforest")
     use("ellisonleao/gruvbox.nvim")
     use("catppuccin/nvim")
+    use("EdenEast/nightfox.nvim")
 
     -- lsp
     use({

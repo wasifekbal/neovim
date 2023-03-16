@@ -23,7 +23,7 @@ require("user.comment")
 require("user.indentline")
 
 --[[ require('user/coderunner') ]]
---[[ require("user.alpha") ]]
+require("user.alpha")
 require("user.gitsigns")
 require("user.colorizer")
 --[[ require('user/toggleterm') ]]

@@ -30,6 +30,21 @@ local prettier_custom = function(parser)
     }
 end
 
+--[[ custom clang-format function for 4 width indent ]]
+---@diagnostic disable-next-line: unused-local, unused-function
+local custom_clangformat = function()
+    return {
+        exe = "clang-format",
+        args = {
+            '-style="{BasedOnStyle: llvm, IndentWidth: 4}"',
+            "-assume-filename",
+            util.escape_path(util.get_current_buffer_file_name()),
+        },
+        stdin = true,
+        try_node_modules = true,
+    }
+end
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
     -- Enable or disable logging
@@ -104,36 +119,16 @@ require("formatter").setup({
             require("formatter.filetypes.yaml").yamlfmt,
         },
 
+        java = {
+            require("formatter.defaults.clangformat"),
+        },
+
         c = {
-            --[[ require("formatter.defaults.clangformat"), ]]
-            function()
-                return {
-                    exe = "clang-format",
-                    args = {
-                        '-style="{BasedOnStyle: llvm, IndentWidth: 4}"',
-                        "-assume-filename",
-                        util.escape_path(util.get_current_buffer_file_name()),
-                    },
-                    stdin = true,
-                    try_node_modules = true,
-                }
-            end,
+            require("formatter.defaults.clangformat"),
         },
 
         cpp = {
-            --[[ require("formatter.defaults.clangformat"), ]]
-            function()
-                return {
-                    exe = "clang-format",
-                    args = {
-                        '-style="{BasedOnStyle: llvm, IndentWidth: 4}"',
-                        "-assume-filename",
-                        util.escape_path(util.get_current_buffer_file_name()),
-                    },
-                    stdin = true,
-                    try_node_modules = true,
-                }
-            end,
+            require("formatter.defaults.clangformat"),
         },
         -- any filetype
         ["*"] = {
