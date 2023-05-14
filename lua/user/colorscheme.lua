@@ -94,7 +94,7 @@
 
 -- catppuccin options
 require("catppuccin").setup({
-    flavour = "mocha",
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = {
         light = "latte",
         dark = "mocha",
