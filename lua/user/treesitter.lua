@@ -1,8 +1,9 @@
+--[[ require("nvim-treesitter.install").prefer_git = true ]]
 local treesitter_config = require("nvim-treesitter.configs")
 
 treesitter_config.setup({
     -- ensure_installed = "maintained",
-    ensure_installed = { "c", "cpp", "python", "javascript", "html", "css", "json", "java", "typescript", "tsx" },
+    ensure_installed = { "c", "cpp", "python", "javascript", "html", "css", "json", "java", "typescript", "tsx", "vue" },
     sync_install = false,
     ignore_install = { "" }, -- List of parsers to ignore installing
     highlight = {

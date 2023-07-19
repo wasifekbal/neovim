@@ -94,6 +94,11 @@ require("formatter").setup({
             require("formatter.defaults.prettier"),
         },
 
+        vue = {
+            --[[ require("formatter.filetypes.typescriptreact").prettier, ]]
+            require("formatter.defaults.prettier"),
+        },
+
         css = {
             --[[ require("formatter.defaults.prettier"), ]]
             prettier_custom,

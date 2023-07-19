@@ -80,3 +80,7 @@ lspconfig.jdtls.setup({
     on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
 })
+lspconfig.volar.setup({
+    on_attach = handlers.on_attach,
+    capabilities = handlers.capabilities,
+})
