@@ -20,6 +20,7 @@ require("user.sessions")
 require("user.autopairs")
 require("user.ts-autotag")
 require("user.comment")
+--[[ require("user.nvim-comment") ]]
 require("user.indentline")
 
 --[[ require('user/coderunner') ]]

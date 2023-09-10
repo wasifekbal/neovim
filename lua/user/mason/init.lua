@@ -21,18 +21,18 @@ mason.setup({
 
 mason_lspconfig.setup({
     ensure_installed = {
-        "bashls",
-        "lua_ls",
-        "jsonls",
-        "html",
-        "cssls",
-        "clangd",
+        --[[ "bashls", ]]
+        --[[ "lua_ls", ]]
+        --[[ "jsonls", ]]
+        --[[ "html", ]]
+        --[[ "cssls", ]]
+        --[[ "clangd", ]]
         --[[ "jdtls", ]]
-        "pyright",
-        "tsserver",
-        "tailwindcss",
+        --[[ "pyright", ]]
+        --[[ "tsserver", ]]
+        --[[ "tailwindcss", ]]
     },
-    automatic_installation = true,
+    automatic_installation = false,
 })
 
 require("user.mason.handlers").setup()

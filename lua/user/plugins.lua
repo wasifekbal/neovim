@@ -95,6 +95,7 @@ return packer.startup(function(use)
 
     -- comments
     use("numToStr/Comment.nvim") -- Smart and powerful comment plugin for neovim. Supports treesitter
+    use("terrortylor/nvim-comment") -- Smart and powerful comment plugin for neovim. Supports treesitter
     use("JoosepAlviste/nvim-ts-context-commentstring") -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
 
     -- bufferline

@@ -21,6 +21,7 @@ vim.g.maplocalleader = " "
 -- Misc keybinds
 keymap("n", "<F2>", ":set hlsearch!<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader><leader>w", ":w!<CR>", opts)
 keymap("n", "<leader>q", ":xa<CR>", opts)
 keymap("n", "<leader><leader>q", ":qa!<CR>", opts)
 keymap("n", "<F3>", ":set spell!<CR>", { silent = true })
@@ -56,6 +57,7 @@ keymap("n", "ss", ":split<Return><C-w>w", opts)
 keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
 -- closing buffer.
 keymap("n", "<leader>c", ":bd<CR>", opts)
+keymap("n", "<leader><leader>c", ":bd!<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
