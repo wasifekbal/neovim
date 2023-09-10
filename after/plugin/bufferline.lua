@@ -91,25 +91,22 @@ bufferline_config.setup({
         -- end
     },
     highlights = {
-        separator = {
-            fg = "#293a23",
-            --[[ fg = '#073642', ]]
-            --[[ bg = '#002b36', ]]
-        },
-        separator_selected = {
-            fg = "#293a23",
-            --[[ fg = '#073642', ]]
-        },
+        --[[ separator = { ]]
+        --[[     fg = "#cdd6f4", ]]
+        --[[ }, ]]
+        --[[ separator_selected = { ]]
+        --[[     fg = "#fab387", ]]
+        --[[ }, ]]
         background = {
-            fg = "#657b83",
-            --[[ bg = '#002b36' ]]
+            fg = '#bac2de',
+            bg = "#1e1e2e"
         },
         buffer_selected = {
-            --[[ fg = '#fdf6e3', ]]
-            --[[ italic = true, ]]
+            fg = '#74c7ec',
+            italic = true,
         },
-        fill = {
-            --[[ bg = '#073642' ]]
-        },
+        --[[ fill = { ]]
+        --[[     bg = '#073642' ]]
+        --[[ }, ]]
     },
 })

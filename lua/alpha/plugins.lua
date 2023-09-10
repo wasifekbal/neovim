@@ -18,8 +18,8 @@ end
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -47,29 +47,51 @@ return packer.startup(function(use)
     use("windwp/nvim-ts-autotag") -- Use treesitter to auto close and auto rename html tag
     --
     -- Colorschemes
-    use("sainnhe/everforest")
-    use("ellisonleao/gruvbox.nvim")
+    -- use("sainnhe/everforest")
+    -- use("ellisonleao/gruvbox.nvim")
     use("catppuccin/nvim")
-    use("EdenEast/nightfox.nvim")
+    use({ "rose-pine/neovim", as = "rose-pine" })
+    -- use("EdenEast/nightfox.nvim")
+
+    -- lsp-zero
+    use({
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
+        requires = {
+            -- LSP Support
+            { "neovim/nvim-lspconfig" }, -- Required
+            { "williamboman/mason.nvim" }, -- Optional
+            { "williamboman/mason-lspconfig.nvim" }, -- Optional
+
+            -- Autocompletion
+            { "hrsh7th/nvim-cmp" }, -- Required
+            { "hrsh7th/cmp-nvim-lsp" }, -- Required
+            { "hrsh7th/cmp-cmdline" }, -- nvim-cmp source for vim's cmdline
+            { "hrsh7th/cmp-nvim-lua" }, -- nvim-cmp source for nvim lua
+            { "L3MON4D3/LuaSnip" }, -- Required
+            -- snippets.
+            { "L3MON4D3/LuaSnip" }, -- Snippet Engine for Neovim written in Lua.
+        },
+    })
 
     -- lsp
-    use({
-        "williamboman/mason.nvim", -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
-        "williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim.
-        "neovim/nvim-lspconfig", -- helps in lsp configuration.
-    })
-    use("jose-elias-alvarez/null-ls.nvim")
+    -- use({
+    --     "williamboman/mason.nvim", -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
+    --     "williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim.
+    --     "neovim/nvim-lspconfig", -- helps in lsp configuration.
+    -- })
+    -- use("jose-elias-alvarez/null-ls.nvim")
 
-    -- cmp
-    use("hrsh7th/nvim-cmp") -- A completion plugin for neovim coded in Lua.
-    use("hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
-    use("hrsh7th/cmp-path") -- nvim-cmp source for path
-    use("hrsh7th/cmp-cmdline") -- nvim-cmp source for vim's cmdline
-    use("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for nvim lua
-    use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim builtin LSP client
+    -- -- cmp
+    -- use("hrsh7th/nvim-cmp") -- A completion plugin for neovim coded in Lua.
+    -- use("hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
+    -- use("hrsh7th/cmp-path") -- nvim-cmp source for path
+    -- use("hrsh7th/cmp-cmdline") -- nvim-cmp source for vim's cmdline
+    -- use("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for nvim lua
+    -- use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim builtin LSP client
 
     -- snippets.
-    use("L3MON4D3/LuaSnip") -- Snippet Engine for Neovim written in Lua.
+    --[[ use("L3MON4D3/LuaSnip") -- Snippet Engine for Neovim written in Lua. ]]
     use("saadparwaiz1/cmp_luasnip") -- luasnip completion source for nvim-cmp
     use("rafamadriz/friendly-snippets") -- Set of preconfigured snippets for different languages.
     use({ -- Extension for React/Javascript snippets with search supporting ES7+ and babel features
@@ -77,11 +99,11 @@ return packer.startup(function(use)
         run = "yarn install --frozen-lockfile && yarn compile",
     })
 
-    -- telescope
+    -- -- telescope
     use("nvim-telescope/telescope.nvim") -- highly extendable fuzzy finder over lists.
     use("nvim-telescope/telescope-media-files.nvim") -- Telescope extension to preview media files using Ueberzug.
 
-    -- treesitter
+    -- -- treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- highly efficient syntax highlighter.
     use("p00f/nvim-ts-rainbow") -- Rainbow parentheses for neovim using tree-sitter.
 
@@ -98,7 +120,7 @@ return packer.startup(function(use)
     use("terrortylor/nvim-comment") -- Smart and powerful comment plugin for neovim. Supports treesitter
     use("JoosepAlviste/nvim-ts-context-commentstring") -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
 
-    -- bufferline
+    -- -- bufferline
     use({ "akinsho/bufferline.nvim", tag = "v2.*" }) -- A snazzy bufferline for Neovim
 
     -- lualine
@@ -107,11 +129,11 @@ return packer.startup(function(use)
     -- code formatter
     use("mhartington/formatter.nvim") -- a kickass code formatter.
 
-    -- code-runner
-    use("CRAG666/code_runner.nvim") -- Code runner
+    -- -- code-runner
+    -- use("CRAG666/code_runner.nvim") -- Code runner
 
     -- impatient (speed loading lua modules)
-    use("lewis6991/impatient.nvim")
+    -- use("lewis6991/impatient.nvim")
 
     -- indent-blankline
     use("lukas-reineke/indent-blankline.nvim") -- Indent guides for Neovim
@@ -129,12 +151,17 @@ return packer.startup(function(use)
 
     --[[ use({ "akinsho/toggleterm.nvim", tag = "v2.*" }) -- A neovim lua plugin to help easily manage multiple terminal windows ]]
 
-    use("ThePrimeagen/vim-be-good") -- vim-be-good is a nvim plugin designed to make you better at Vim Movements.
+    -- use("ThePrimeagen/vim-be-good") -- vim-be-good is a nvim plugin designed to make you better at Vim Movements.
 
     --[[ color highlighter for Neovim ]]
-    use("norcalli/nvim-colorizer.lua") -- The fastest Neovim colorizer.
+    use({ -- The fastest Neovim colorizer.
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup()
+        end,
+    })
 
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
+    -- use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

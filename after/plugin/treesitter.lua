@@ -1,27 +1,28 @@
-require("nvim-treesitter.install").prefer_git = true
+-- require("nvim-treesitter.install").prefer_git = true
 local treesitter_config = require("nvim-treesitter.configs")
 
 treesitter_config.setup({
     -- ensure_installed = "maintained",
     ensure_installed = {
+		"lua",
         --[[ "c", ]]
         --[[ "cpp", ]]
-        --[[ "python", ]]
+        "python",
         --[[ "javascript", ]]
-        --[[ "html", ]]
-        --[[ "css", ]]
-        --[[ "json", ]]
+        "html",
+        "css",
+        "json",
         --[[ "java", ]]
         --[[ "typescript", ]]
-        --[[ "tsx", ]]
+        "tsx",
         --[[ "vue" ]]
     },
-    sync_install = true,
+    sync_install = false,
     ignore_install = { "" }, -- List of parsers to ignore installing
     highlight = {
         enable = true, -- false will disable the whole extension
-        disable = { "lua" }, -- list of language that will be disabled
-        additional_vim_regex_highlighting = true,
+        disable = { "" }, -- list of language that will be disabled
+        additional_vim_regex_highlighting = false,
     },
     rainbow = {
         enable = true,
