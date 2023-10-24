@@ -1,8 +1,3 @@
-local status_ok, nvimtree_config = pcall(require, "nvim-tree")
-if not status_ok then
-    return
-end
-
 local function on_attach(bufnr)
     local api = require("nvim-tree.api")
 
@@ -73,80 +68,87 @@ local function on_attach(bufnr)
     vim.keymap.set("n", "K", api.node.show_info_popup, opts("Info"))
 end
 
-nvimtree_config.setup({
-    --[[ sort_by = "case_sensitive", ]]
-    on_attach = on_attach,
-    view = {
-        side = "right",
-        adaptive_size = true,
-    },
-    renderer = {
-        add_trailing = true,
-        group_empty = true,
-        highlight_git = true,
-        full_name = false,
-        root_folder_modifier = ":~",
-        indent_markers = {
-            enable = true,
+local config = function()
+    require("nvim-tree").setup({
+        --[[ sort_by = "case_sensitive", ]]
+        on_attach = on_attach,
+        view = {
+            side = "right",
+            adaptive_size = true,
+        },
+        renderer = {
+            add_trailing = true,
+            group_empty = true,
+            highlight_git = true,
+            full_name = false,
+            root_folder_modifier = ":~",
+            indent_markers = {
+                enable = true,
+                icons = {
+                    corner = "└",
+                    edge = "│",
+                    item = "│",
+                    none = " ",
+                },
+            },
             icons = {
-                corner = "└",
-                edge = "│",
-                item = "│",
-                none = " ",
-            },
-        },
-        icons = {
-            webdev_colors = true,
-            git_placement = "after",
-            padding = " ",
-            symlink_arrow = " ➛ ",
-            show = {
-                file = true,
-                folder = true,
-                folder_arrow = true,
-                git = true,
-            },
-            glyphs = {
-                default = "",
-                symlink = "",
-                bookmark = "",
-                git = {
-                    unstaged = "",
-                    staged = "S",
-                    unmerged = "",
-                    renamed = "➜",
-                    deleted = "",
-                    untracked = "U",
-                    ignored = "◌",
+                webdev_colors = true,
+                git_placement = "after",
+                padding = " ",
+                symlink_arrow = " ➛ ",
+                show = {
+                    file = true,
+                    folder = true,
+                    folder_arrow = true,
+                    git = true,
                 },
-                folder = {
-                    default = "",
-                    open = "",
-                    empty = "",
-                    empty_open = "",
-                    symlink = "",
+                glyphs = {
+                    default = "",
+                    symlink = "",
+                    bookmark = "",
+                    git = {
+                        unstaged = "",
+                        staged = "S",
+                        unmerged = "",
+                        renamed = "➜",
+                        deleted = "",
+                        untracked = "U",
+                        ignored = "◌",
+                    },
+                    folder = {
+                        default = "",
+                        open = "",
+                        empty = "",
+                        empty_open = "",
+                        symlink = "",
+                    },
                 },
             },
+            special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+            symlink_destination = true,
         },
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-        symlink_destination = true,
-    },
-    filters = {
-        dotfiles = false,
-    },
-    git = {
-        ignore = false,
-    },
-    diagnostics = {
-        enable = true,
-        show_on_dirs = false,
-        debounce_delay = 50,
-        icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
+        filters = {
+            dotfiles = false,
         },
-    },
-})
+        git = {
+            ignore = false,
+        },
+        diagnostics = {
+            enable = true,
+            show_on_dirs = false,
+            debounce_delay = 50,
+            icons = {
+                hint = "",
+                info = "",
+                warning = "",
+                error = "",
+            },
+        },
+    })
+end
 
+return {
+    "nvim-tree/nvim-tree.lua",
+    lazy = false,
+    config = config
+}

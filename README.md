@@ -1,5 +1,5 @@
-## My neovim configuration in lua.
-![image](https://github.com/wasifekbal/nvim_config/assets/59216684/946b1a6f-ef13-49ab-ad5c-c19f19ab1361)
+## My neovim configuration.
+![image](https://github.com/wasifekbal/nvim_config/assets/59216684/9c7adebe-3a9d-4ae9-b816-256f0df4444b)
 
 ```bash
 git clone https://github.com/wasifekbal/nvim_config.git ~/.config/nvim

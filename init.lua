@@ -1,1 +1,1 @@
-require("alpha")
+require("config")

@@ -7,8 +7,6 @@ local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -26,6 +24,13 @@ keymap("n", "<leader>q", ":xa<CR>", opts)
 keymap("n", "<leader><leader>q", ":qa!<CR>", opts)
 keymap("n", "<F3>", ":set spell!<CR>", { silent = true })
 keymap("i", "<F3>", "<C-O>:set spell!<CR>", { silent = true })
+
+-- Vertically center next search.
+keymap("n", "n", "nzz", { silent = true })
+keymap("n", "N", "Nzz", { silent = true })
+
+-- keymap("n", "[[", "[[zz", { silent = true })
+-- keymap("n", "]]", "]]zz", { silent = true })
 
 -- not to store in reg.
 keymap("n", "x", '"_x', opts)
@@ -52,9 +57,12 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 -- Normal --
 -- New empty buffer.
 keymap("n", "te", ":enew<CR>", opts)
+
 -- Split window
-keymap("n", "ss", ":split<Return><C-w>w", opts)
-keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
+keymap("n", "ss", ":split<Return><C-w>w", opts) -- Split Horizontally
+keymap("n", "sv", ":vsplit<Return><C-w>w", opts) -- Split Vertically
+keymap("n", "<leader>z", ":MaximizerToggle<CR>", opts) -- Toggle Minimize
+
 -- closing buffer.
 keymap("n", "<leader>c", ":bd<CR>", opts)
 keymap("n", "<leader><leader>c", ":bd!<CR>", opts)
@@ -102,19 +110,20 @@ keymap("x", "K", ":move '<-2<CR>gv=gv", opts)
 --[[ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts) ]]
 
 --  Telescope
-keymap(
-    "n",
-    "<leader>ff",
-    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-    --[[ "<cmd>lua require'telescope.builtin'.find_files()<cr>", ]]
-    opts
-)
-keymap("n", "<leader>fg", " <cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>fb", " <cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-keymap("n", "<leader>fh", " <cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+-- keymap(
+--     "n",
+--     "<leader>ff",
+--     "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+--     --[[ "<cmd>lua require'telescope.builtin'.find_files()<cr>", ]]
+--     opts
+-- )
+-- keymap("n", "<leader>fg", " <cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+-- keymap("n", "<leader>fb", " <cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+-- keymap("n", "<leader>fh", " <cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 
 -- nvim-tree
-keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>lf", "<cmd>NvimTreeFindFile<CR>", opts)
 
 -- bufferline
 -- Move to previous/next
