@@ -3,12 +3,12 @@ local opts = {
         "bashls",
         "lua_ls",
         "pyright",
+        "tsserver",
+        "jsonls",
         -- "cssls",
-        --[[ "jsonls", ]]
         --[[ "html", ]]
         --[[ "clangd", ]]
         --[[ "jdtls", ]]
-        --[[ "tsserver", ]]
         --[[ "tailwindcss", ]]
     },
     automatic_installation = true,

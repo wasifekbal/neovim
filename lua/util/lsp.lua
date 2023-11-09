@@ -38,9 +38,15 @@ local function lsp_keymaps(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ol", ":Lspsaga outline<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>sf", ":Lspsaga finder<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ic", ":Lspsaga incoming_calls<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oc", ":Lspsaga outgoing_calls<CR>", opts)
     if client.name == "pyright" then
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>PyrightOrganizeImports<CR>", opts)
     end
+
 end
 
 ---@diagnostic disable-next-line: unused-local

@@ -4,6 +4,11 @@ local function config()
         styles = { "italic", "bold" },
         custom = {
             mocha = {
+                buffer_selected = {
+                    fg = mocha.text,
+                    bg = mocha.surface0,
+                    italic = true,
+                },
                 background = {
                     fg = mocha.text,
                     italic = true,

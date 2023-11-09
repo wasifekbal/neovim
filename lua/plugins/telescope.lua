@@ -7,6 +7,7 @@ local config = function()
             prompt_prefix = " ",
             selection_caret = " ",
             path_display = { "smart" },
+            file_ignore_patterns = {"node_modules", "__pycache__"},
             mappings = {
                 i = {
                     ["<C-n>"] = actions.cycle_history_next,

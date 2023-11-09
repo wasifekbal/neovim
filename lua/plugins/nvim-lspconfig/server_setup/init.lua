@@ -47,10 +47,10 @@ lspconfig.tsserver.setup({
     },
 })
 
-lspconfig.tailwindcss.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
+-- lspconfig.tailwindcss.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- })
 
 -- local jsonls_options = require("user.mason.server_settings.jsonls")
 lspconfig.jsonls.setup({
