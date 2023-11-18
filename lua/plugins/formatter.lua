@@ -2,7 +2,7 @@ local function config()
     -- Utilities for creating configurations
     local util = require("formatter.util")
 
-    --[[ custom prettier function for 4 width indent ]]
+    -- custom prettier function for 4 width indent
     local prettier_custom = function(parser)
         if not parser then
             return {
@@ -77,19 +77,24 @@ local function config()
 
             javascript = {
                 --[[ require("formatter.filetypes.javascript").prettier, ]]
-                require("formatter.defaults.prettier"),
+                -- require("formatter.defaults.prettier"),
+                prettier_custom,
             },
 
             javascriptreact = {
                 --[[ require("formatter.filetypes.javascriptreact").prettier, ]]
-                require("formatter.defaults.prettier"),
+                -- require("formatter.defaults.prettier"),
+                prettier_custom,
             },
 
             typescript = {
                 --[[ require("formatter.filetypes.typescript")typettier, ]]
                 require("formatter.defaults.prettier"),
             },
-
+            json = {
+                -- require("formatter.filetypes.json").prettier
+                prettier_custom,
+            },
             typescriptreact = {
                 --[[ require("formatter.filetypes.typescriptreact").prettier, ]]
                 require("formatter.defaults.prettier"),
