@@ -10,6 +10,8 @@
 return {
     "mbbill/undotree",
     -- dependencies = "nvim-lua/plenary.nvim",
+    -- lazy = false,
+    event = "BufReadPre",
     config = function() end,
     keys = { -- load the plugin only when using it's keybinding:
         { "<leader>u", "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>" },
