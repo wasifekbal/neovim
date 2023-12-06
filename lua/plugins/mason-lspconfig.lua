@@ -5,11 +5,11 @@ local opts = {
         "pyright",
         "tsserver",
         "jsonls",
-        -- "cssls",
-        --[[ "html", ]]
+        "cssls",
+        "html",
+        "tailwindcss",
         --[[ "clangd", ]]
         --[[ "jdtls", ]]
-        --[[ "tailwindcss", ]]
     },
     automatic_installation = true,
 }

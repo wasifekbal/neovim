@@ -9,6 +9,8 @@ local function config()
                 exe = "prettier",
                 args = {
                     "--tab-width 4",
+                    "--arrow-parens always",
+                    "--trailing-comma es5",
                     "--stdin-filepath",
                     util.escape_path(util.get_current_buffer_file_path()),
                 },
@@ -21,6 +23,8 @@ local function config()
             exe = "prettier",
             args = {
                 "--tab-width 4",
+                "--arrow-parens always",
+                "--trailing-comma es5",
                 "--stdin-filepath",
                 util.escape_path(util.get_current_buffer_file_path()),
                 "--parser",
