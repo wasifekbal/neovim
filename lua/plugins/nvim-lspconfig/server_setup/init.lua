@@ -6,7 +6,6 @@ local cap = vim.lsp.protocol.make_client_capabilities()
 cap.offsetEncoding = { "utf-16" }
 local capabilities = require("cmp_nvim_lsp").default_capabilities(cap)
 
-
 -- local lua_options = require("user.mason.server_settings.lua_ls")
 lspconfig.lua_ls.setup({
     on_attach = on_attach,
@@ -23,7 +22,7 @@ lspconfig.lua_ls.setup({
                 },
             },
         },
-    }
+    },
     -- settings = require("user.mason.server_settings.lua_ls").settings,
 })
 
@@ -71,12 +70,22 @@ lspconfig.pyright.setup({
                 reportOptionalSubscript = "off",
                 reportOptionalMemberAccess = "off",
             },
-        pyright = {
-                disableOrganizeImports = true
-            }
+            pyright = {
+                disableOrganizeImports = true,
+            },
         },
-    }
+    },
     -- settings = pyright_options.settings,
+})
+
+require("lspconfig").ruff_lsp.setup({
+    on_attach = on_attach,
+    init_options = {
+        settings = {
+            -- Any extra CLI arguments for `ruff` go here.
+            args = {},
+        },
+    },
 })
 
 lspconfig.bashls.setup({

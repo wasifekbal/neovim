@@ -8,6 +8,7 @@ local opts = {
         "cssls",
         "html",
         "tailwindcss",
+        "ruff_lsp"
         --[[ "clangd", ]]
         --[[ "jdtls", ]]
     },
