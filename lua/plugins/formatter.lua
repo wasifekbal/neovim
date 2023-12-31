@@ -81,14 +81,14 @@ local function config()
 
             javascript = {
                 --[[ require("formatter.filetypes.javascript").prettier, ]]
-                -- require("formatter.defaults.prettier"),
-                prettier_custom,
+                require("formatter.defaults.prettier"),
+                -- prettier_custom,
             },
 
             javascriptreact = {
                 --[[ require("formatter.filetypes.javascriptreact").prettier, ]]
-                -- require("formatter.defaults.prettier"),
-                prettier_custom,
+                require("formatter.defaults.prettier"),
+                -- prettier_custom,
             },
 
             typescript = {

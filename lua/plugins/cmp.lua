@@ -28,15 +28,15 @@ local kind_icons = {
 }
 
 local function config()
+    require("luasnip/loaders/from_vscode").lazy_load()
+
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
-    -- luasnip.filetype_extend("javascript", { "html" })
-    -- luasnip.filetype_extend("typescript", { "html" })
-    -- luasnip.filetype_extend("javascriptreact", { "html" })
-    -- luasnip.filetype_extend("typescriptreact", { "html" })
-
-    -- require("luasnip/loaders/from_vscode").lazy_load()
+    luasnip.filetype_extend("javascript", { "html" })
+    luasnip.filetype_extend("typescript", { "html" })
+    luasnip.filetype_extend("javascriptreact", { "html" })
+    luasnip.filetype_extend("typescriptreact", { "html" })
 
     cmp.setup({
         snippet = {
@@ -97,8 +97,8 @@ local function config()
         -- priority wise source selection.
         sources = {
             { name = "nvim_lsp" },
-            { name = "nvim_lua" },
             { name = "luasnip" },
+            { name = "nvim_lua" },
             { name = "buffer" },
             { name = "path" },
         },
@@ -145,6 +145,10 @@ return {
     event = "BufReadPre",
     config = config,
     dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
         {
             "L3MON4D3/LuaSnip",
             event = "BufReadPre",
@@ -152,10 +156,13 @@ return {
             version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
             -- install jsregexp (optional!).
             build = "make install_jsregexp",
+            dependencies = {
+                "rafamadriz/friendly-snippets",
+                {
+                    "dsznajder/vscode-es7-javascript-react-snippets",
+                    build = "yarn install --frozen-lockfile && yarn compile",
+                },
+            },
         },
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-cmdline",
     },
 }

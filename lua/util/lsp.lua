@@ -1,10 +1,10 @@
 local M = {}
 
 M.signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignError",text = "✘" },
+    { name = "DiagnosticSignWarn", text = "▲" },
+    { name = "DiagnosticSignHint", text = "⚑" },
+    { name = "DiagnosticSignInfo", text = "»" },
 }
 
 -- Set autocommands conditional on server_capabilities
@@ -47,6 +47,8 @@ local function lsp_keymaps(client, bufnr)
 
     if client.name == "pyright" then
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>PyrightOrganizeImports<CR>", opts)
+    elseif client.name == "tsserver" then
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>OrganizeImports<CR>", opts)
     end
 end
 

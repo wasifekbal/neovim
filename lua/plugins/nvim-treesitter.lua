@@ -7,7 +7,7 @@ local config = function()
             "markdown",
             "markdown_inline",
             "python",
-            "bash"
+            "bash",
         },
         auto_install = true,
         sync_install = true,
@@ -25,18 +25,20 @@ local config = function()
             -- colors = {}, -- table of hex strings
             -- termcolors = {} -- table of colour name strings
         },
-        context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-        },
         autotag = {
             enable = true,
-        }
+        },
+    })
+    require("ts_context_commentstring").setup({
+        enable_autocmd = false,
+        languages = {
+            python = "# %s",
+        },
     })
 end
 
 return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
-    config = config
+    config = config,
 }
