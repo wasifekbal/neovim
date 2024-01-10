@@ -11,7 +11,7 @@ local kind_icons = {
     Module = "",
     Property = "",
     Unit = "",
-    Value = "",
+    Value = "",
     Enum = "",
     Keyword = "",
     Snippet = "",
@@ -23,7 +23,7 @@ local kind_icons = {
     Constant = "",
     Struct = "",
     Event = "",
-    Operator = "",
+    Operator = "",
     TypeParameter = "",
 }
 
@@ -59,39 +59,39 @@ local function config()
             -- Set `select` to `false` to only confirm explicitly selected items.
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
-            -- -- <Tab> for cycling through suggestiongs
-            -- ["<Tab>"] = cmp.mapping(function(fallback)
-            --     if cmp.visible() then
-            --         cmp.select_next_item()
-            --         --[[ elseif luasnip.expandable() then ]]
-            --         --[[   luasnip.expand() ]]
-            --         --[[ elseif luasnip.expand_or_jumpable() then ]]
-            --         --[[   luasnip.expand_or_jump() ]]
-            --         --[[ elseif has_words_before() then ]]
-            --         --[[   cmp.complete() ]]
-            --         --[[ elseif check_backspace() then ]]
-            --         --[[   fallback() ]]
-            --     else
-            --         fallback()
-            --     end
-            -- end, {
-            --         "i",
-            --         "s",
-            --     }),
-            --
-            -- -- <Shift-Tab> for reverse cycling
-            -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-            --     if cmp.visible() then
-            --         cmp.select_prev_item()
-            --         --[[ elseif luasnip.jumpable(-1) then ]]
-            --         --[[   luasnip.jump(-1) ]]
-            --     else
-            --         fallback()
-            --     end
-            -- end, {
-            --         "i",
-            --         "s",
-            --     }),
+            -- <Tab> for cycling through suggestiongs
+            ["<Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                    elseif luasnip.expandable() then
+                      luasnip.expand()
+                    elseif luasnip.expand_or_jumpable() then
+                      luasnip.expand_or_jump()
+                    --[[ elseif has_words_before() then ]]
+                    --[[   cmp.complete() ]]
+                    --[[ elseif check_backspace() then ]]
+                    --[[   fallback() ]]
+                else
+                    fallback()
+                end
+            end, {
+                "i",
+                "s",
+            }),
+
+            -- <Shift-Tab> for reverse cycling
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                    elseif luasnip.jumpable(-1) then
+                      luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, {
+                "i",
+                "s",
+            }),
         },
 
         -- priority wise source selection.
@@ -141,28 +141,30 @@ local function config()
 end
 
 return {
-    "hrsh7th/nvim-cmp",
-    event = "BufReadPre",
-    config = config,
-    dependencies = {
+    {
         "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        {
-            "L3MON4D3/LuaSnip",
-            event = "BufReadPre",
-            -- follow latest release.
-            version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-            -- install jsregexp (optional!).
-            build = "make install_jsregexp",
-            dependencies = {
-                "rafamadriz/friendly-snippets",
-                {
-                    "dsznajder/vscode-es7-javascript-react-snippets",
-                    build = "yarn install --frozen-lockfile && yarn compile",
-                },
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp",
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+            {
+                "dsznajder/vscode-es7-javascript-react-snippets",
+                build = "yarn install --frozen-lockfile && yarn compile",
             },
         },
     },
+    {
+        "hrsh7th/nvim-cmp",
+        event = "BufReadPre",
+        config = config,
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+        },
+    },
 }
+
