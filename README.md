@@ -1,5 +1,15 @@
-## My neovim configuration.
+# My neovim configuration.
 ![image](https://github.com/wasifekbal/nvim_config/assets/59216684/9c7adebe-3a9d-4ae9-b816-256f0df4444b)
+
+## **Get Set Neovim**
+```bash
+curl -o- https://wasifekbal.in/get_set_neovim | bash
+```
+```bash
+wget -qO- https://wasifekbal.in/get_set_neovim | bash
+```
+---------------------
+## Clone nvim config ( Manual )
 
 ```bash
 git clone https://github.com/wasifekbal/nvim_config.git ~/.config/nvim
