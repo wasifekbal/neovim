@@ -44,10 +44,12 @@ local function lsp_keymaps(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>sf", ":Lspsaga finder<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ic", ":Lspsaga incoming_calls<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oc", ":Lspsaga outgoing_calls<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>bd", ":Lspsaga show_buf_diagnostics ++float<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>wd", ":Lspsaga show_workspace_diagnostics ++float<CR>", opts)
 
     if client.name == "pyright" then
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>PyrightOrganizeImports<CR>", opts)
-    elseif client.name == "tsserver" then
+    elseif client.name == "ts_ls" then
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>OrganizeImports<CR>", opts)
     end
 end
@@ -65,3 +67,4 @@ M.on_attach = function(client, bufnr)
 end
 
 return M
+

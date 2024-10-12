@@ -25,9 +25,9 @@ local config = function()
             -- colors = {}, -- table of hex strings
             -- termcolors = {} -- table of colour name strings
         },
-        autotag = {
-            enable = true,
-        },
+        --[[ autotag = { ]]
+        --[[     enable = true, ]]
+        --[[ }, ]]
     })
     require("ts_context_commentstring").setup({
         enable_autocmd = false,
@@ -42,3 +42,4 @@ return {
     lazy = false,
     config = config,
 }
+

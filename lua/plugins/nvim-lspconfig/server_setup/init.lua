@@ -35,7 +35,7 @@ local function organize_imports()
     vim.lsp.buf.execute_command(params)
 end
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     commands = {
@@ -45,6 +45,8 @@ lspconfig.tsserver.setup({
         },
     },
 })
+
+lspconfig.gopls.setup{}
 
 -- lspconfig.tailwindcss.setup({
 --     on_attach = on_attach,

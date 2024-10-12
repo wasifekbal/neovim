@@ -23,6 +23,7 @@ local function config()
     require("bufferline").setup({
         highlights = catppuccin_highlights,
         options = {
+            update_in_insert = true,
             mode = "", -- set to "tabs" to only show tabpages instead
             numbers = "none", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
             close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -65,7 +66,7 @@ local function config()
             max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
             tab_size = 20,
             diagnostics = "nvim_lsp",
-            diagnostics_update_in_insert = true,
+            --[[ diagnostics_update_in_insert = true, ]]
             -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
             -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
             --   return "("..count..")"
@@ -139,3 +140,4 @@ return {
         "catppuccin/nvim",
     },
 }
+

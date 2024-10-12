@@ -4,11 +4,11 @@ local function config()
         debug = false,
         sources = {
             -- Diagnostics
-            null_ls.builtins.diagnostics.eslint_d,
+            --[[ null_ls.builtins.diagnostics.eslint_d, ]]
             -- null_ls.builtins.diagnostics.ruff,
 
             -- Code Actions
-            null_ls.builtins.code_actions.eslint_d,
+            --[[ null_ls.builtins.code_actions.eslint_d, ]]
 
             -- Completions
         },
@@ -20,3 +20,4 @@ return {
     event = "BufReadPre",
     config = config,
 }
+

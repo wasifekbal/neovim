@@ -25,6 +25,9 @@ keymap("n", "<leader><leader>q", ":qa!<CR>", opts)
 keymap("n", "<F3>", ":set spell!<CR>", { silent = true })
 keymap("i", "<F3>", "<C-O>:set spell!<CR>", { silent = true })
 
+keymap("n", "<F4>", ":set wrap!<CR>", { silent = true })
+keymap("i", "<F4>", "<C-O>:set wrap!<CR>", { silent = true })
+
 -- Vertically center next search.
 keymap("n", "n", "nzz", { silent = true })
 keymap("n", "N", "Nzz", { silent = true })
@@ -151,3 +154,4 @@ keymap("n", "<leader>ph", ":Gitsigns preview_hunk<CR>", opts)
 keymap("n", "<leader>dt", ":Gitsigns diffthis<CR>", opts)
 keymap("n", "<leader>[h", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>]h", ":Gitsigns next_hunk<CR>", opts)
+

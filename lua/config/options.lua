@@ -24,7 +24,8 @@ local options = {
     backup = false, -- creates a backup file
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     undofile = true, -- enable persistent undo
-    undodir = vim.fn.expand("~/.vim/undotree"),
+    --[[ undodir = vim.fn.expand("~/.vim/undotree"), ]]
+    undodir = vim.fn.expand("~/.local/share/nvim/undotree"),
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     mouse = "a", -- allow the mouse to be used in neovim
@@ -58,6 +59,9 @@ end
 vim.opt.shortmess:append("c")
 vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.cmd([[filetype plugin indent on]])
+--
+-- Add custom filetype detection for *.ssh.config files
+vim.cmd([[autocmd BufNewFile,BufRead *.ssh.conf setfiletype sshconfig]])
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
@@ -80,3 +84,4 @@ vim.cmd([[set foldlevel=99]])
 
 -- override the color of line number.
 -- vim.cmd([[highlight LineNr guifg=#e0a0a0]])
+

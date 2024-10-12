@@ -79,6 +79,19 @@ local function config()
                 end,
             },
 
+            bash = {
+                function()
+                    return {
+                        exe = "shfmt",
+                        args = {
+                            "-i 4",
+                            util.escape_path(util.get_current_buffer_file_path()),
+                        },
+                        stdin = true,
+                    }
+                end,
+            },
+
             javascript = {
                 --[[ require("formatter.filetypes.javascript").prettier, ]]
                 require("formatter.defaults.prettier"),

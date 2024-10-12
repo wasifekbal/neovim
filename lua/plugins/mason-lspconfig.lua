@@ -3,7 +3,7 @@ local opts = {
         "bashls",
         "lua_ls",
         "pyright",
-        "tsserver",
+        "ts_ls",
         "jsonls",
         "cssls",
         "html",
