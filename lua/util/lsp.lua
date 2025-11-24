@@ -66,5 +66,12 @@ M.on_attach = function(client, bufnr)
     lsp_highlight_document(client)
 end
 
+M.lang_srv_setup = function (server, opts)
+    vim.lsp.config[server] = vim.lsp.config[server] or {}
+    print(vim.lsp.config[server])
+    vim.lsp.config[server].setup(opts or {})
+    vim.lsp.enable(server)
+end
+
 return M
 

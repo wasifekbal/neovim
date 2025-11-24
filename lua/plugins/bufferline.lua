@@ -1,25 +1,6 @@
 local function config()
     local mocha = require("catppuccin.palettes").get_palette("mocha")
-    local catppuccin_highlights = require("catppuccin.groups.integrations.bufferline").get({
-        styles = { "italic", "bold" },
-        custom = {
-            mocha = {
-                buffer_selected = {
-                    fg = mocha.text,
-                    bg = mocha.surface0,
-                    italic = true,
-                },
-                background = {
-                    fg = mocha.text,
-                    italic = true,
-                },
-                fill = {
-                    fg = mocha.text,
-                    -- bg = "#000000"
-                },
-            },
-        },
-    })
+    local catppuccin_highlights = require("catppuccin.special.bufferline").get_theme()
     require("bufferline").setup({
         highlights = catppuccin_highlights,
         options = {

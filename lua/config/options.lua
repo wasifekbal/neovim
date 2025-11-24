@@ -59,9 +59,12 @@ end
 vim.opt.shortmess:append("c")
 vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.cmd([[filetype plugin indent on]])
+vim.cmd [[syntax enable]]
+
 --
 -- Add custom filetype detection for *.ssh.config files
 vim.cmd([[autocmd BufNewFile,BufRead *.ssh.conf setfiletype sshconfig]])
+vim.cmd([[autocmd BufNewFile,BufRead *.cron setfiletype crontab]])
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

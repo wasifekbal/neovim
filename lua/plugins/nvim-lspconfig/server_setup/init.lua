@@ -1,20 +1,28 @@
 local lspconfig = require("lspconfig")
-
 local on_attach = require("util.lsp").on_attach
+local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities
+local capabilities = cmp_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.offsetEncoding = { "utf-16" }
 
-local cap = vim.lsp.protocol.make_client_capabilities()
-cap.offsetEncoding = { "utf-16" }
-local capabilities = require("cmp_nvim_lsp").default_capabilities(cap)
+local function setup_lsp(server, opts)
+    if not lspconfig[server] then
+        vim.notify("LSP server not installed: " .. server, vim.log.levels.WARN)
+        return
+    end
+    lspconfig[server].setup(opts or {})
+end
 
--- local lua_options = require("user.mason.server_settings.lua_ls")
-lspconfig.lua_ls.setup({
+-- ==========================
+-- LSP SERVERS
+-- ==========================
+
+-- LUA
+setup_lsp("lua_ls", {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
         Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
+            diagnostics = { globals = { "vim" } },
             workspace = {
                 library = {
                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
@@ -23,9 +31,9 @@ lspconfig.lua_ls.setup({
             },
         },
     },
-    -- settings = require("user.mason.server_settings.lua_ls").settings,
 })
 
+-- TYPESCRIPT
 local function organize_imports()
     local params = {
         command = "_typescript.organizeImports",
@@ -35,7 +43,7 @@ local function organize_imports()
     vim.lsp.buf.execute_command(params)
 end
 
-lspconfig.ts_ls.setup({
+setup_lsp("ts_ls", {
     on_attach = on_attach,
     capabilities = capabilities,
     commands = {
@@ -46,23 +54,17 @@ lspconfig.ts_ls.setup({
     },
 })
 
-lspconfig.gopls.setup{}
+-- GO
+setup_lsp("gopls", {})
 
--- lspconfig.tailwindcss.setup({
---     on_attach = on_attach,
---     capabilities = capabilities,
--- })
-
--- local jsonls_options = require("user.mason.server_settings.jsonls")
-lspconfig.jsonls.setup({
+-- JSON
+setup_lsp("jsonls", {
     on_attach = on_attach,
     capabilities = capabilities,
-    -- settings = jsonls_options.settings,
-    -- setup = jsonls_options.setup,
 })
 
--- local pyright_options = require("user.mason.server_settings.pyright")
-lspconfig.pyright.setup({
+-- PYTHON
+setup_lsp("pyright", {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -72,49 +74,31 @@ lspconfig.pyright.setup({
                 reportOptionalSubscript = "off",
                 reportOptionalMemberAccess = "off",
             },
-            pyright = {
-                disableOrganizeImports = true,
-            },
-        },
-    },
-    -- settings = pyright_options.settings,
-})
-
-require("lspconfig").ruff_lsp.setup({
-    on_attach = on_attach,
-    init_options = {
-        settings = {
-            -- Any extra CLI arguments for `ruff` go here.
-            args = {},
+            pyright = { disableOrganizeImports = true },
         },
     },
 })
 
-lspconfig.bashls.setup({
+-- RUFF (Python linter)
+setup_lsp("ruff", {
     on_attach = on_attach,
-    capabilities = capabilities,
+    init_options = { settings = { args = {} } },
 })
 
-lspconfig.html.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
+-- BASH
+setup_lsp("bashls", { on_attach = on_attach, capabilities = capabilities })
 
-lspconfig.cssls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
+-- HTML
+setup_lsp("html", { on_attach = on_attach, capabilities = capabilities })
 
-lspconfig.clangd.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
+-- CSS
+setup_lsp("cssls", { on_attach = on_attach, capabilities = capabilities })
 
-lspconfig.jdtls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
-lspconfig.volar.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
+-- C / C++
+setup_lsp("clangd", { on_attach = on_attach, capabilities = capabilities })
+
+-- JAVA
+setup_lsp("jdtls", { on_attach = on_attach, capabilities = capabilities })
+
+-- VUE / VOLAR
+setup_lsp("volar", { on_attach = on_attach, capabilities = capabilities })

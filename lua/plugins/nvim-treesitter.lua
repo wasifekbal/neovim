@@ -15,7 +15,7 @@ local config = function()
         highlight = {
             enable = true, -- false will disable the whole extension
             -- disable = { "lua" }, -- list of language that will be disabled
-            additional_vim_regex_highlighting = true,
+            additional_vim_regex_highlighting = false,
         },
         rainbow = {
             enable = true,
@@ -41,5 +41,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     config = config,
+    event = "BufReadPost", -- make sure it loads on buffer open
 }
 

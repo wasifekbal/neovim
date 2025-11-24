@@ -5,7 +5,9 @@ local function on_attach(bufnr)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
+
     -- BEGIN_DEFAULT_ON_ATTACH
+    vim.keymap.set("n", "<C-p>", require("util.misc").nvimtree_drag_files, opts("Run: drag on node"))
     vim.keymap.set("n", "<C-]>", api.tree.change_root_to_node, opts("CD"))
     vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
     --[[ vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts("Info")) ]]
@@ -150,5 +152,5 @@ end
 return {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
-    config = config
+    config = config,
 }

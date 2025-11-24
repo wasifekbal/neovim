@@ -46,7 +46,7 @@
 --     vim.cmd("colorscheme nightfox")
 -- end
 
-local config = function()
+local catppuccin_config = function()
     require("catppuccin").setup({
         flavour = "mocha", -- latte, frappe, macchiato, mocha
         background = {
@@ -97,5 +97,5 @@ return {
     "catppuccin/nvim",
     lazy = false,
     priority = 999,
-    config = config
+    config = catppuccin_config
 }
