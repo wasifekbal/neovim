@@ -2,24 +2,39 @@ return {
     "ojroques/nvim-osc52",
     event = "VeryLazy",
     config = function()
-        require("osc52").setup({
-            max_length = 0,      -- no limit
-            silent = false,      -- notify on copy
-            trim = false,        -- don't trim whitespace
+        local osc52 = require("osc52")
+
+        osc52.setup({
+            max_length = 0,
+            silent = false,
+            trim = false,
         })
 
-        local function copy()
-            require("osc52").copy_visual()
+        -- Copy to BOTH:
+        -- 1. System clipboard (+ register)
+        -- 2. OSC52 (for SSH)
+        local function copy_operator(type)
+            -- Copy to system clipboard
+            vim.cmd('normal! "+y')
+
+            -- Copy via OSC52
+            if type == "line" then
+                osc52.copy_line()
+            elseif type == "visual" then
+                osc52.copy_visual()
+            else
+                osc52.copy_operator(type)
+            end
         end
 
-        local function copy_line()
-            require("osc52").copy_line()
-        end
+        -- Normal mode: yy / y motions
+        vim.keymap.set("n", "y", function()
+            return copy_operator
+        end, { expr = true })
 
-        -- Visual mode: copy selection
-        vim.keymap.set("v", "<leader>y", copy, { desc = "OSC52 copy selection" })
-
-        -- Normal mode: copy current line
-        vim.keymap.set("n", "<leader>yy", copy_line, { desc = "OSC52 copy line" })
+        -- Visual mode: y
+        vim.keymap.set("v", "y", function()
+            copy_operator("visual")
+        end)
     end,
 }
