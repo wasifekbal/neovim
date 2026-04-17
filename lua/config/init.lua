@@ -40,3 +40,4 @@ local opt = {
 }
 
 require("lazy").setup("plugins", opt)
+require("config.autocmds")

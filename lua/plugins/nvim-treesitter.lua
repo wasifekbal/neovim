@@ -41,6 +41,5 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     config = config,
-    event = "BufReadPost", -- make sure it loads on buffer open
 }
 

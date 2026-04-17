@@ -30,19 +30,15 @@ setup_lsp("lua_ls", {
 })
 
 -- TYPESCRIPT
-local function organize_imports()
-    vim.lsp.buf.execute_command({
-        command = "_typescript.organizeImports",
-        arguments = { vim.api.nvim_buf_get_name(0) },
-    })
-end
 
 setup_lsp("ts_ls", {
     on_attach = on_attach,
     capabilities = capabilities,
     commands = {
         OrganizeImports = {
-            organize_imports,
+            function()
+                require("util.lsp").organize_imports()
+            end,
             description = "Organize Imports",
         },
     },

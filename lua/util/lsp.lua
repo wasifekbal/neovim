@@ -46,11 +46,36 @@ local function lsp_keymaps(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oc", ":Lspsaga outgoing_calls<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>bd", ":Lspsaga show_buf_diagnostics ++float<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>wd", ":Lspsaga show_workspace_diagnostics ++float<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>lua require('util.lsp').organize_imports()<CR>", opts)
 
-    if client.name == "pyright" then
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>PyrightOrganizeImports<CR>", opts)
-    elseif client.name == "ts_ls" then
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>OrganizeImports<CR>", opts)
+end
+
+--- Organize imports and remove unused imports
+M.organize_imports = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
+    local clients = get_clients({ bufnr = bufnr })
+
+    for _, client in ipairs(clients) do
+        if client.name == "ts_ls" then
+            vim.lsp.buf.execute_command({
+                command = "_typescript.organizeImports",
+                arguments = { vim.api.nvim_buf_get_name(0) },
+                title = ""
+            })
+            vim.lsp.buf.execute_command({
+                command = "_typescript.removeUnused",
+                arguments = { vim.api.nvim_buf_get_name(0) },
+                title = ""
+            })
+        elseif client.name == "pyright" then
+            vim.cmd("PyrightOrganizeImports")
+        else
+            vim.lsp.buf.code_action({
+                context = { only = { "source.organizeImports" } },
+                apply = true,
+            })
+        end
     end
 end
 
