@@ -59,7 +59,7 @@ end
 vim.opt.shortmess:append("c")
 vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.cmd([[filetype plugin indent on]])
-vim.cmd [[syntax enable]]
+vim.cmd([[syntax enable]])
 
 --
 -- Add custom filetype detection for *.ssh.config files
@@ -87,4 +87,3 @@ vim.cmd([[set foldlevel=99]])
 
 -- override the color of line number.
 -- vim.cmd([[highlight LineNr guifg=#e0a0a0]])
-

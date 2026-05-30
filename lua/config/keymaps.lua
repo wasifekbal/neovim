@@ -32,24 +32,8 @@ keymap("i", "<F4>", "<C-O>:set wrap!<CR>", { silent = true })
 keymap("n", "n", "nzz", { silent = true })
 keymap("n", "N", "Nzz", { silent = true })
 
--- keymap("n", "[[", "[[zz", { silent = true })
--- keymap("n", "]]", "]]zz", { silent = true })
-
 -- not to store in reg.
 keymap("n", "x", '"_x', opts)
-
--- leader y -> yank in clipboard,
--- else yank in vim reg.
---[[ keymap("n", "<leader>y", '"+y', opts) ]]
---[[ keymap("v", "<leader>y", '"+y', opts) ]]
---[[ keymap("n", "<leader>yy", '"+yy', opts) ]]
-
--- leader p -> paste from clipboard,
--- else, paste from default vim reg.
---[[ keymap("n", "<leader>p", '"+p', opts) ]]
---[[ keymap("v", "<leader>p", '"+p', opts) ]]
---[[ keymap("n", "<leader>P", '"+P', opts) ]]
---[[ keymap("v", "<leader>P", '"+P', opts) ]]
 
 -- Select all
 keymap("n", "<leader>a", "gg<S-v>G", opts)
@@ -82,18 +66,12 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
---[[ keymap("n", "<S-h>", ":bnext<CR>", opts) ]]
---[[ keymap("n", "<S-l>", ":bprevious<CR>", opts) ]]
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Move text up and down
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "H", "<gv", opts)
+keymap("v", "L", ">gv", opts)
 
 -- can't remember what it does. but it does something important.
 keymap("v", "p", '"_dP', opts)
@@ -102,27 +80,6 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv=gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv=gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Terminal --
--- Better terminal navigation
---[[ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts) ]]
---[[ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts) ]]
---[[ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts) ]]
---[[ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts) ]]
-
---  Telescope
--- keymap(
---     "n",
---     "<leader>ff",
---     "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
---     --[[ "<cmd>lua require'telescope.builtin'.find_files()<cr>", ]]
---     opts
--- )
--- keymap("n", "<leader>fg", " <cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
--- keymap("n", "<leader>fb", " <cmd>lua require('telescope.builtin').buffers()<cr>", opts)
--- keymap("n", "<leader>fh", " <cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 
 -- nvim-tree
 keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
@@ -137,21 +94,16 @@ keymap("n", "<A-<>", ":BufferLineMovePrev<CR>", opts)
 keymap("n", "<A->>", ":BufferLineMoveNext<CR>", opts)
 
 -- formatter
-keymap("n", "<F8>", ":Format<CR>", { noremap = true, silent = true })
-keymap("i", "<F8>", "<C-O>:Format<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "i" }, "<F8>", function()
+    require("conform").format({
+        async = true,
+        lsp_fallback = true,
+    })
+end, { desc = "Format file or range" })
 
--- ## code_runner ##
---[[ keymap("n", "<C-n>", ":RunCode<CR>", opts) ]]
--- map('n', '<leader>rf', ':RunFile<CR>', opts)
---map('n', '<leader>n', ':RunFile tab<CR>', opts)
--- map('n', '<leader>rp', ':RunProject<CR>', opts)
---[[ keymap("n", "<leader>x", ":RunClose<CR>", opts) ]]
--- map('n', '<leader>crf', ':CRFiletype<CR>', opts)
--- map('n', '<leader>crp', ':CRProjects<CR>', opts)
-
+-- gitsigns
 keymap("n", "<leader>bl", ":Gitsigns blame_line<CR>", opts)
 keymap("n", "<leader>ph", ":Gitsigns preview_hunk<CR>", opts)
 keymap("n", "<leader>dt", ":Gitsigns diffthis<CR>", opts)
 keymap("n", "<leader>[h", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>]h", ":Gitsigns next_hunk<CR>", opts)
-
