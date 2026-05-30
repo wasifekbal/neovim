@@ -1,7 +1,7 @@
 local M = {}
 
 M.signs = {
-    { name = "DiagnosticSignError",text = "✘" },
+    { name = "DiagnosticSignError", text = "✘" },
     { name = "DiagnosticSignWarn", text = "▲" },
     { name = "DiagnosticSignHint", text = "⚑" },
     { name = "DiagnosticSignInfo", text = "»" },
@@ -47,7 +47,6 @@ local function lsp_keymaps(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>bd", ":Lspsaga show_buf_diagnostics ++float<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>wd", ":Lspsaga show_workspace_diagnostics ++float<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oi", "<cmd>lua require('util.lsp').organize_imports()<CR>", opts)
-
 end
 
 --- Organize imports and remove unused imports
@@ -61,12 +60,12 @@ M.organize_imports = function()
             vim.lsp.buf.execute_command({
                 command = "_typescript.organizeImports",
                 arguments = { vim.api.nvim_buf_get_name(0) },
-                title = ""
+                title = "",
             })
             vim.lsp.buf.execute_command({
                 command = "_typescript.removeUnused",
                 arguments = { vim.api.nvim_buf_get_name(0) },
-                title = ""
+                title = "",
             })
         elseif client.name == "pyright" then
             vim.cmd("PyrightOrganizeImports")
@@ -82,16 +81,11 @@ end
 ---@diagnostic disable-next-line: unused-local
 M.on_attach = function(client, bufnr)
     -- enable keybinds for buffers with lsp server.
-
-    --[[ if (client.name == "tsserver") or (client.name == "clangd") then ]]
-    --[[ client.server_capabilities.document_formatting = false ]]
-    --[[ client.server_capabilities.documentFormattingProvider = false ]]
-    --[[ end ]]
     lsp_keymaps(client, bufnr)
     lsp_highlight_document(client)
 end
 
-M.lang_srv_setup = function (server, opts)
+M.lang_srv_setup = function(server, opts)
     vim.lsp.config[server] = vim.lsp.config[server] or {}
     print(vim.lsp.config[server])
     vim.lsp.config[server].setup(opts or {})
@@ -99,4 +93,3 @@ M.lang_srv_setup = function (server, opts)
 end
 
 return M
-
